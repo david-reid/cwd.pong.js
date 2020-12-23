@@ -41,7 +41,7 @@ class Ball {
     }
 
     collisions(paddle1, paddle2) {
-        this.checkForPerimeterCollisions();
+        this.checkForPerimeterCollisions(paddle1,paddle2);
         this.checkForCollisionWith(paddle1);
         this.checkForCollisionWith(paddle2);
     }
@@ -60,7 +60,7 @@ class Ball {
         }
     }
 
-    checkForPerimeterCollisions() {
+    checkForPerimeterCollisions(paddle1,paddle2) {
 
         let ballAtTop = ( this.ypos + this.size/2 ) < 0;
         let ballAtBottom = this.ypos > ( this.fx.height() - this.size/2);
@@ -75,9 +75,13 @@ class Ball {
         let ballLeftOfCanvas = ( this.xpos + this.size ) < 0;
         let ballRightOfCanvas = ( this.xpos ) > this.fx.width();
 
-        if ( ballLeftOfCanvas || ballRightOfCanvas ) {
+        if ( ballLeftOfCanvas ) {
+            paddle2.score++;
             this.reset();
         }
-
+        if ( ballRightOfCanvas ) {
+            paddle1.score++;
+            this.reset();
+        }
     }
 }

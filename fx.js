@@ -62,4 +62,10 @@ class Fx {
         gradient.addColorStop(1, color2);
         return gradient;
     }
+
+    printText(text, x,y, size,font,color) {
+        this.context.fillStyle = color;
+        this.context.font = `${size} ${font}`;
+        this.context.fillText(text,x,y);
+    }
 } 

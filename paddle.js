@@ -10,6 +10,7 @@ class Paddle {
         this.width = 0;
         this.height = 0;
         this.offset = 35;
+        this.score = 0;
     }
 
     init() {
@@ -17,6 +18,13 @@ class Paddle {
         this.width = this.fx.width() * 0.05;
         this.ypos = this.fx.height()/2 - this.height/2;
         this.xpos = this.position == this.leftPaddle ? 0 : this.fx.width() - this.width;
+        this.score = 0;
+    }
+
+    reset() {
+        this.ypos = this.fx.height()/2 - this.height/2;
+        this.xpos = this.position == this.leftPaddle ? 0 : this.fx.width() - this.width;
+        this.score = 0;
     }
 
     draw() {
