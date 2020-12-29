@@ -8,8 +8,16 @@
         <script src='ball.js'></script>
         <script src='paddle.js'></script>
         <script src='game.js'></script>
+        <link rel="stylesheet" type="text/css" href="game.css"/>
     </head>
     <body>
-        <canvas id="canvas"></canvas> 
+        <canvas id="canvas" style="display:none"></canvas> 
+        <div id="start" style="display:block">
+            <a href="#" onclick="startGame()">Start Game</a>
+        </div>
+        <div id="game-over" style="display:none">
+            <h1>Game Over</h1>
+            <a href="#" onclick="startGame()">Start Game</a>
+        </div>
     </body>
 </html>

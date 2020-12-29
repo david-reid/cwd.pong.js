@@ -15,7 +15,6 @@ window.onload = function() {
     ball = new Ball(graphics);
     graphics.setCanvasToPageSize();
     addEventListener('mousemove', mouseMove);
-    start();
 }
 
 window.onresize = function() {
@@ -66,7 +65,31 @@ function mouseMove(event) {
 
 function checkScore() {
     if ( player1.score >= highscore || player2.score >= highscore ) {
-        player1.reset();
-        player2.reset();
+        gameOver();
     }
+}
+
+function startGame() {
+    let startDiv = document.getElementById("start");
+    let gameCanvas = document.getElementById("canvas");
+    let gameOver = document.getElementById("game-over");
+    startDiv.style.display = "none";
+    gameCanvas.style.display = "block";
+    gameOver.style.display = "none";
+    start();
+}
+
+function gameOver() {
+    let startDiv = document.getElementById("start");
+    let gameCanvas = document.getElementById("canvas");
+    let gameOver = document.getElementById("game-over");
+    startDiv.style.display = "none";
+    gameCanvas.style.display = "none";
+    gameOver.style.display = "block";
+
+    ball.reset();
+    player1.reset();
+    player2.reset();
+
+    clearInterval(loop);
 }
